@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js",
-    "dev": "concurrently \"npm run build:css\" \"ts-node-dev --respawn src/index.ts\"",
-    "build:css": "npx tailwindcss -i ./src/public/styles.css -o ./dist/public/styles.css --watch"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +22,7 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
+    "@types/react": "^18.3.12",
     "express": "^4.21.1",
     "next": "^15.0.3",
     "react": "^18.3.1",
