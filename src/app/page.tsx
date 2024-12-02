@@ -33,27 +33,48 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-white">Let's Connect!</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="https://www.linkedin.com/in/zainashaik/" className="text-white hover:text-pink-200 underline">
+                  <a 
+                    href="https://www.linkedin.com/in/zainashaik/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-pink-200 underline"
+                  >
                     → LinkedIn
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/zainashaik" className="text-white hover:text-pink-200 underline">
+                  <a 
+                    href="https://github.com/zainashaik" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-pink-200 underline"
+                  >
                     → Github
                   </a>
                 </li>
                 <li>
-                  <a href="https://scholar.google.com/citations?user=xGE7DHMAAAAJ&hl=en" className="text-white hover:text-pink-200 underline">
+                  <a 
+                    href="https://scholar.google.com/citations?user=xGE7DHMAAAAJ&hl=en" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-pink-200 underline"
+                  >
                     → Google Scholar
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:zainashaik20@gmail.com" className="text-white hover:text-pink-200 underline">
+                  <a 
+                    href="mailto:zainashaik20@gmail.com" 
+                    className="text-white hover:text-pink-200 underline"
+                  >
                     → zainashaik20@gmail.com
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:zainashaik@berkeley.edu" className="text-white hover:text-pink-200 underline">
+                  <a 
+                    href="mailto:zainashaik@berkeley.edu" 
+                    className="text-white hover:text-pink-200 underline"
+                  >
                     → zainashaik@berkeley.edu
                   </a>
                 </li>
