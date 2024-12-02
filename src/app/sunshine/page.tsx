@@ -62,127 +62,63 @@ export default function Sunshine() {
           <div className="flex flex-col md:flex-row justify-between mb-6">
             <div className="md:w-3/4">
               <h3 className="text-xl font-semibold text-white">University of California, Berkeley</h3>
-              <p className="text-pink-600">B.A. in Computer Science</p>
-              <p className="text-pink-600">Certificates in Design and Entrepreneurship & Technology</p>
+              <p className="text-white">Bachelor of Arts in <strong>Computer Science</strong></p>
+              <p className="text-white">Berkeley Certificate in Design Innovation</p>
+              <p className="text-white">SCET Certificate in Entrepreneurship & Technology</p>
             </div>
-            <div className="text-orange-500 md:w-1/4 text-right">
+            <div className="text-white md:w-1/4 text-right">
               August 2020 - May 2024
             </div>
           </div>
 
-          {/* Awards Subsection */}
-          <div className="mt-6">
-            <div className="flex items-center gap-2 mb-2">
-              <h4 className="text-lg font-semibold text-white">Awards</h4>
-              <button 
-                onClick={() => setShowAllAwards(!showAllAwards)}
-                className="text-pink-500 hover:text-pink-700 transition-transform duration-200"
-                style={{ 
-                  transform: showAllAwards ? 'rotate(-180deg)' : 'rotate(0deg)'
-                }}
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              </button>
-            </div>
-            <ul className="list-disc list-inside text-pink-600 space-y-1">
-              <li>Regents' and Chancellor's Scholar</li>
-              <li>SEED Honors Research Scholar</li>
-              {showAllAwards && (
-                <>
-                  <li>Berkeley Leadership Award</li>
-                  <li>CS Department Honors</li>
-                </>
-              )}
-            </ul>
-          </div>
+          {/* New Education Info */}
+          <div className="text-white">
 
-          {/* Notable Classes Subsection */}
-          <div className="mt-6">
-            <div className="flex items-center gap-2 mb-2">
-              <h4 className="text-lg font-semibold text-white">Notable Classes</h4>
-              <button 
-                onClick={() => setShowAllClasses(!showAllClasses)}
-                className="text-pink-500 hover:text-pink-700 transition-transform duration-200"
-                style={{ 
-                  transform: showAllClasses ? 'rotate(-180deg)' : 'rotate(0deg)'
-                }}
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              </button>
-            </div>
-            <ul className="list-disc list-inside text-pink-600 space-y-1">
-              <li>CS 161: Computer Security</li>
-              <li>CS 188: Introduction to Artificial Intelligence</li>
-              {showAllClasses && (
-                <>
-                  <li>CS 189: Introduction to Machine Learning</li>
-                  <li>CS 170: Efficient Algorithms and Intractable Problems</li>
-                </>
-              )}
+            <h4 className="text-lg font-semibold mt-4">Awards:</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li>UC Berkeley:</li>
+              <ul className="list-disc list-inside ml-4">
+                <li>Regents’ and Chancellor’s Scholar (RCSA) (Top 1% of Incoming Students) [March 2020]</li>
+                <li>Regents’ Research Fellowship [Oct. 2023]</li>
+                <li>STEM Excellence through Equity & Diversity (SEED) Honors Research Scholar ($80k Stipend for AI Research) [March 2020]</li>
+                <li>SEED High Achievement Award [May 2024]</li>
+                <li>Cal Alumni Association Leadership Scholar [Sept. 2020, 2021, 2022]</li>
+                <li>Cal PlexHacks (5th place) [Aug. 2020]</li>
+                <li>SCET Innovation Fellow Bronze Award [Jan. 2024]</li>
+              </ul>
+              <li>Other:</li>
+              <ul className="list-disc list-inside ml-4">
+                <li>Google CS Research Mentorship Program 2023b [Sept. 2023]</li>
+                <li>Kleiner Perkins Semi-finalist [May 2023]</li>
+                <li>Y Combinator Startup School (Top 10%) [March 2023], Y Combinator Summer Conference [May 2023]</li>
+                <li>Figma Config23 Student Scholarship [June 2023]</li>
+                <li>C-STEM Robotics Competition (Top 10) [April 2019]</li>
+                <li>National Merit Finalist [Feb. 2019]</li>
+              </ul>
             </ul>
-          </div>
 
-          {/* Certifications Subsection */}
-          <div className="mt-6">
-            <div className="flex items-center gap-2 mb-2">
-              <h4 className="text-lg font-semibold text-white">Certifications</h4>
-              <button 
-                onClick={() => setShowAllCerts(!showAllCerts)}
-                className="text-pink-500 hover:text-pink-700 transition-transform duration-200"
-                style={{ 
-                  transform: showAllCerts ? 'rotate(-180deg)' : 'rotate(0deg)'
-                }}
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              </button>
-            </div>
-            <ul className="list-disc list-inside text-pink-600 space-y-1">
-              <li>Certificate in Design Innovation
-                <span className="text-sm text-gray-500 ml-2">Jacobs Institute for Design Innovation</span>
-              </li>
-              {showAllCerts && (
-                <>
-                  <li>Certificate in Entrepreneurship & Technology
-                    <span className="text-sm text-gray-500 ml-2">Sutardja Center for Entrepreneurship</span>
-                  </li>
-                </>
-              )}
+            <h4 className="text-lg font-semibold mt-4">Classes:</h4>
+            <p>Computer Science Major: CS194-196: Responsible Generative AI & Decentralized Intelligence & Large Language Models (LLMs), CS160: User Interfaces, CS169a: Cloud Computing & Software Engineering, CS195: AI Ethics, CS188: Artificial Intelligence, CS61b: Data Structures, CS170: Advanced Algorithms, CS70: Discrete Math, CS61a: Object Oriented Programming, CS61c: Computer Architecture, STAT 24: Data Visualizations, EECS16a/b: Machine Learning, Multivariable Calculus, Linear Algebra, Differential Equations.</p>
+            <p>Berkeley Certificate in Design Innovation: ENVDES4a: Design & Activism, DESINV21: Visual Communications, INTEGBIC32: Bioinspired Design</p>
+            <p>SCET Certificate in Entrepreneurship & Technology: Engin183: Product Management, UGBA194: Business Entrepreneurship</p>
+
+            <h4 className="text-lg font-semibold mt-4">Certifications:</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Amazon Web Services:</li>
+              <ul className="list-disc list-inside ml-4">
+                <li><a href="https://www.credly.com/badges/2cd8d3fe-fc79-4bcb-8ee8-fd4277498e8e/public_url" className="text-pink-500 hover:text-pink-700">Certified Cloud Practitioner</a></li>
+                <li><a href="https://drive.google.com/file/d/1rs4lqo3AhGMYj6_AMI-tNkZuRXbA77cQ/view?usp=sharing" className="text-pink-500 hover:text-pink-700">Fundamentals of Machine Learning and Artificial Intelligence</a></li>
+              </ul>
+              <li>Google Cloud:</li>
+              <ul className="list-disc list-inside ml-4">
+                <li><a href="https://www.cloudskillsboost.google/public_profiles/f280d41d-4f67-440c-8b43-b46fbddc3e22/badges/3900020" className="text-pink-500 hover:text-pink-700">Intro to Generative AI</a></li>
+              </ul>
+              <li>LinkedIn:</li>
+              <ul className="list-disc list-inside ml-4">
+                <li><a href="https://drive.google.com/file/d/1z76vqQApLzlpmyt54cDWSEZXMfGpJe8S/view?usp=sharing" className="text-pink-500 hover:text-pink-700">Technical Product Management</a></li>
+                <li><a href="https://drive.google.com/file/d/1p2C1Fuij850KWSCLCQCekFlgmS7gQuEQ/view?usp=sharing" className="text-pink-500 hover:text-pink-700">Natural Language Processing with PyTorch</a></li>
+                <li><a href="https://drive.google.com/file/d/1vahj0gxpZKIaMARTVeYY7zap6Rjaek-T/view?usp=sharing" className="text-pink-500 hover:text-pink-700">LLaMa for Developers</a></li>
+              </ul>
             </ul>
           </div>
         </div>

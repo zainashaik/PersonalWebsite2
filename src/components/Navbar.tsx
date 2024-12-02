@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -27,7 +28,14 @@ const Navbar = () => {
     <nav className={`shadow-lg fixed w-full top-0 z-50 ${getGradientClass()}`}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex h-16">
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
+            <Image 
+              src="/zlogo2white.png"
+              alt="Zaina Shaik Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
             <Link 
               href="/" 
               className="text-xl font-bold text-white hover:text-pink-200 transition duration-300"
