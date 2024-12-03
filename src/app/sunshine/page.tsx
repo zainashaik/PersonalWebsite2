@@ -1,10 +1,20 @@
 'use client'
 import { useRef, useState } from 'react'
 import React from 'react'
+import Image from 'next/image'
 
 interface SectionRef {
   name: string;
   ref: React.RefObject<HTMLDivElement>;
+}
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  link?: string;
 }
 
 export default function Sunshine() {
@@ -17,6 +27,7 @@ export default function Sunshine() {
   const [showAllAwards, setShowAllAwards] = useState(false)
   const [showAllClasses, setShowAllClasses] = useState(false)
   const [showAllCerts, setShowAllCerts] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' })
@@ -29,6 +40,26 @@ export default function Sunshine() {
     { name: 'Publications', ref: publicationsRef },
     { name: 'Organizations', ref: organizationsRef },
   ]
+
+  const projects: Project[] = [
+    {
+      id: 1,
+      title: "zainashaik.com",
+      description: "Detailed description of project 1...",
+      image: "/projects/zlogo2.png",
+      technologies: ["React", "TypeScript", "Tailwind"],
+      link: "https://github.com/..."
+    },
+    // Add more projects...
+    {
+        id: 2,
+        title: "BAIR",
+        description: "Detailed description of project 1...",
+        image: "/projects/IMG_3812.jpg",
+        technologies: ["React", "TypeScript", "Tailwind"],
+        link: "https://github.com/..."
+      },
+  ];
 
   return (
     <main className="min-h-screen pt-20 px-4 md:px-8 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600">
@@ -184,10 +215,88 @@ export default function Sunshine() {
 
       {/* Projects Section */}
       <div ref={projectsRef} className="max-w-6xl mx-auto mb-16 scroll-mt-32">
-      <h2 className="text-3xl font-bold mb-6 text-white">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Add project cards */}
+        <h2 className="text-3xl font-bold mb-6 text-white">Projects</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <div 
+              key={project.id}
+              className="relative cursor-pointer group"
+              onClick={() => setSelectedProject(project)}
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                layout="responsive"
+                width={16} // Use actual image width
+                height={9} // Use actual image height
+                className="rounded-lg object-contain"
+              />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <h3 className="text-xl font-semibold text-white text-center px-4">
+                    {project.title}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* Modal for expanded view */}
+        {selectedProject && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+            <div className="bg-black rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
+                  <button 
+                    onClick={() => setSelectedProject(null)}
+                    className="text-white hover:text-gray-300"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <div className="relative mb-4">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    layout="responsive"
+                    width={16} // Use actual image width
+                    height={9} // Use actual image height
+                    className="rounded-lg object-contain"
+                  />
+                </div>
+
+                <p className="text-white mb-4">{selectedProject.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {selectedProject.technologies.map((tech) => (
+                    <span 
+                      key={tech}
+                      className="px-3 py-1 bg-purple-900 text-white rounded-full text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {selectedProject.link && (
+                  <a
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white underline hover:text-gray-300"
+                  >
+                    View Project →
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Publications Section */}
