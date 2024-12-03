@@ -29,56 +29,52 @@ export default function Home() {
             <p className="text-white/90">Find out more about my past work experience on the Sunshine page and my hobbies on the Sunset page!</p>
             
             {/* Quick Links */}
-            <div className="space-y-2">
+            <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Let's Connect!</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a 
-                    href="https://www.linkedin.com/in/zainashaik/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-pink-200 underline"
-                  >
-                    → LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://github.com/zainashaik" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-pink-200 underline"
-                  >
-                    → Github
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://scholar.google.com/citations?user=xGE7DHMAAAAJ&hl=en" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-pink-200 underline"
-                  >
-                    → Google Scholar
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="mailto:zainashaik20@gmail.com" 
-                    className="text-white hover:text-pink-200 underline"
-                  >
-                    → zainashaik20@gmail.com
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="mailto:zainashaik@berkeley.edu" 
-                    className="text-white hover:text-pink-200 underline"
-                  >
-                    → zainashaik@berkeley.edu
-                  </a>
-                </li>
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <a 
+                  href="https://www.linkedin.com/in/zainashaik/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                >
+                  <span>LinkedIn</span>
+                </a>
+                <a 
+                  href="https://github.com/zainashaik" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                >
+                  <span>Github</span>
+                </a>
+                <a 
+                  href="https://scholar.google.com/citations?user=xGE7DHMAAAAJ&hl=en" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                >
+                  <span>Google Scholar</span>
+                </a>
+                
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-white">Contact Me:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <a 
+                  href="mailto:zainashaik20@gmail.com" 
+                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                >
+                  <span>zainashaik20@gmail.com</span>
+                </a>
+                <a 
+                  href="mailto:zainashaik@berkeley.edu" 
+                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                >
+                  <span>zainashaik@berkeley.edu</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
