@@ -69,7 +69,6 @@ export default function Sunshine() {
       id: 1,
       title: "zainashaik.com",
       description: "Personal Website",
-      details: "Built from scratch using modern web technologies. Features include responsive design, dark mode support, and interactive project showcases.",
       image: "/projects/zlogo2.png",
       technologies: ["React", "TypeScript", "Tailwind", "Next.js"],
       link: "https://github.com/zainashaik/zainashaik.github.io"
@@ -172,7 +171,7 @@ export default function Sunshine() {
                   <p className="text-white text-right">October 2024 - present<br/>San Francisco, CA</p>
                 </div>
                 <ul className="text-white list-disc list-inside ml-4">
-                  <li>Building a website with real-time updates on comparisons from a database of 300 examples [React, Next.js, Typescript, Tailwind CSS, API calls].</li>
+                  <li>Building a website with real-time updates on comparisons from a database of 200 examples [React, Next.js, Typescript, Tailwind CSS, API calls].</li>
                   <li>Developed, fine-tuned, and evaluated LLM models with control vectors and representation engineering methods [Python, Llama].</li>
                 </ul>
               </div>
@@ -210,7 +209,7 @@ export default function Sunshine() {
                 <ul className="text-white list-disc list-inside ml-4">
                   <li>Scoped research goal to evaluate subjective NLG tasks and prepared dataset (141,000 data points) into training and test files [Python, JSON].</li>
                   <li>Fine-tuned supervised learning model to evaluate its ability to determine humor (70% accuracy) [Python, PyTorch, OpenAI API].</li>
-                  <li>Conducted literature review (20 papers) and presented on effects of measuring annotator responses to evaluate natural language generation models.</li>
+                  <li>Conducted literature review and presented on effects of measuring annotator responses to evaluate natural language generation models.</li>
                 </ul>
               </div>
               <div className="md:w-1/4 flex items-center justify-center">

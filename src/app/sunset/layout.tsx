@@ -5,7 +5,7 @@ import '@/app/globals.css'
 export default async function SunsetLayout({ children }: { children: ReactNode }) {
   try {
     const posts = await getAllPosts()
-    console.log(posts)
+    //console.log(posts)
     
     return children
   } catch (error) {
