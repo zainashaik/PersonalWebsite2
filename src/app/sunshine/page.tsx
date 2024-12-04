@@ -71,7 +71,7 @@ export default function Sunshine() {
       description: "Personal Website",
       image: "/projects/zlogo2.png",
       technologies: ["React", "TypeScript", "Tailwind", "Next.js"],
-      link: "https://github.com/zainashaik/zainashaik.github.io"
+      link: "https://zainashaik.com"
     },
     // Add more projects...
     {
@@ -182,6 +182,11 @@ export default function Sunshine() {
                   width={150}
                   height={150}
                   className="rounded-lg object-contain"
+                  onError={(e) => {
+                    console.error('Image failed to load:', e);
+                    // Optionally set a fallback image
+                    //e.currentTarget.src = '/fallback.jpg';
+                  }}
                 />
               </div>
             </div>
