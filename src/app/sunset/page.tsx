@@ -1,6 +1,9 @@
 'use client'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 // Example data (you'll want to replace this with real data)
 const galleryImages = [
@@ -13,15 +16,52 @@ const galleryImages = [
   // ... more images
 ]
 
-const blogPosts = [
-  { id: 1, title: 'My Z Logo', excerpt: 'How I designed my logo', content: 'Full content here...' },
-  { id: 2, title: 'Berkeley Bucket List (Picturesque Edition)', content: 'Full content here...' },
-  // ... more posts
-]
+// Components that can be used in MDX files
+const components = {
+    Image: Image,
+    // ... other components
+  }
 
-export default function Sunset() {
+interface BlogPost {
+  frontmatter: {
+    title: string;
+  };
+  content: string;
+}
+
+
+const SunsetPage = () => {
+  //const posts = await getPosts()
   const [viewMode, setViewMode] = useState('gallery')
-  const [selectedPost, setSelectedPost] = useState(blogPosts[0])
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null)
+  const [posts, setPosts] = useState<BlogPost[]>([])
+  const [mdxSource, setMdxSource] = useState<MDXRemoteSerializeResult | null>(null)
+
+  // Use useEffect to fetch posts
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch('/api/posts')
+      const data = await response.json()
+      setPosts(data)
+      // Set the first post as selected when posts are loaded
+      if (data.length > 0) {
+        setSelectedPost(data[0])
+      }
+    }
+    
+    fetchPosts()
+  }, [])
+
+  useEffect(() => {
+    const prepareMDX = async () => {
+      if (selectedPost?.content) {
+        const mdxSource = await serialize(selectedPost.content)
+        setMdxSource(mdxSource)
+      }
+    }
+
+    prepareMDX()
+  }, [selectedPost])
 
   return (
     <main className="min-h-screen pt-20 px-4 md:px-8 bg-gradient-to-br from-purple-800 via-pink-800 to-orange-800">
@@ -29,7 +69,7 @@ export default function Sunset() {
         <h1 className="text-4xl font-bold mb-8 text-left text-white">
           Sunset - What I'm Up to During the Night
         </h1>
-        <p className="text-white mb-8 text-left">I enjoy photographing pretty things and pretty people (which is everyone btw), collecting tidbits of the world to add to my scrap-binder (I think it's more flexible than a scrapbook), turning ramblings into writings, putting on henna at 2 am for cultural South Asian events, traveling with my friends and family, and over-accessorizing my outfits with butterflies!</p>
+        {/*<p className="text-white mb-8 text-left">I enjoy photographing pretty things and pretty people (which is everyone btw), collecting tidbits of the world to add to my scrap-binder (I think it's more flexible than a scrapbook), turning ramblings into writings, putting on henna at 2 am for cultural South Asian events, traveling with my friends and family, and over-accessorizing my outfits with butterflies!</p>*/}
 
         {/* View Toggle */}
         <div className="flex justify-center gap-4 mb-8">
@@ -72,32 +112,44 @@ export default function Sunset() {
           <div className="flex gap-8">
             {/* Blog List - Left Side */}
             <div className="w-1/5 space-y-4">
-              {blogPosts.map((post) => (
-                <div
-                  key={post.id}
+              {posts?.map((post: BlogPost) => (
+                <button
+                  key={post.frontmatter.title}
                   onClick={() => setSelectedPost(post)}
-                  className={`p-4 rounded-lg cursor-pointer transition ${
-                    selectedPost?.id === post.id
-                      ? 'bg-white/20'
-                      : 'bg-white/10 hover:bg-white/15'
+                  className={`w-full text-left p-4 rounded-lg transition-colors ${
+                    selectedPost?.frontmatter.title === post.frontmatter.title
+                      ? 'bg-white/20 text-white'
+                      : 'bg-white/10 text-white/80 hover:bg-white/15'
                   }`}
                 >
-                  <h2 className="text-xl font-bold text-white">{post.title}</h2>
-                  <p className="text-white/80">{post.excerpt}</p>
-                </div>
+                  {post.frontmatter.title}
+                </button>
               ))}
             </div>
 
             {/* Blog Content - Right Side */}
-            <div className="w-4/5 bg-white/10 p-6 rounded-lg">
-              <h2 className="text-2xl font-bold mb-4 text-white">{selectedPost.title}</h2>
-              <div className="prose prose-invert">
-                <p className="text-white/90">{selectedPost.content}</p>
+            {selectedPost ? (
+              <div className="w-4/5 bg-white/10 p-6 rounded-lg">
+                <h2 className="text-2xl font-bold mb-4 text-white">{selectedPost.frontmatter.title}</h2>
+                <div className="prose prose-invert max-w-none white-bullets">
+                  {mdxSource && (
+                    <MDXRemote 
+                      {...mdxSource}
+                      components={components} 
+                    />
+                  )}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="w-4/5 bg-white/10 p-6 rounded-lg">
+                <p className="text-white">Select a post to read</p>
+              </div>
+            )}
           </div>
         )}
       </div>
     </main>
   )
 }
+
+export default SunsetPage

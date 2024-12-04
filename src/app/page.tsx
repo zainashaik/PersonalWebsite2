@@ -1,8 +1,11 @@
 import Image from 'next/image'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
+import { SiGooglescholar } from 'react-icons/si'
+import { MdEmail } from 'react-icons/md'
 
 export default function Home() {
   return (
-    <main className="min-h-screen pt-20 px-4 md:px-8 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400">
+    <main className="min-h-screen pt-20 pb-16 px-4 md:px-8 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400">
       {/* Hero Section */}
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-center text-white">Zaina Shaik's Website</h1>
@@ -36,42 +39,46 @@ export default function Home() {
                   href="https://www.linkedin.com/in/zainashaik/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
+                  <FaLinkedin className="text-pink-900 text-xl" />
                   <span>LinkedIn</span>
                 </a>
                 <a 
                   href="https://github.com/zainashaik" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
+                  <FaGithub className="text-pink-900 text-xl" />
                   <span>Github</span>
                 </a>
                 <a 
                   href="https://scholar.google.com/citations?user=xGE7DHMAAAAJ&hl=en" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
+                  <SiGooglescholar className="text-pink-900 text-xl" />
                   <span>Google Scholar</span>
                 </a>
-                
               </div>
             </div>
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white">Contact Me:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <a 
+                <a 
                   href="mailto:zainashaik20@gmail.com" 
-                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
+                  <MdEmail className="text-pink-900 text-xl" />
                   <span>zainashaik20@gmail.com</span>
                 </a>
                 <a 
                   href="mailto:zainashaik@berkeley.edu" 
-                  className="flex items-center justify-center px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
+                  <MdEmail className="text-pink-900 text-xl" />
                   <span>zainashaik@berkeley.edu</span>
                 </a>
               </div>
