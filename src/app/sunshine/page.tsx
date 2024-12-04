@@ -146,8 +146,8 @@ export default function Sunshine() {
             <h3 className="text-xl font-semibold text-white">DayDream Ventures - Venture Fellow</h3>
             <p className="text-white"> Remote [October 2024 - December 2024]</p>
             <ul className="text-white list-disc list-inside ml-4">
-              <li>Writing company memos for startups in AI, Consumer, and Community.</li>
-              <li>Attending weekly workshops on topics like AI, startups, and venture capital.</li>
+              <li>Sourcing and writing company memos for startups in AI, Consumer, and Community.</li>
+              <li>Attending weekly workshops on topics like venture capital, startups, and entrepreneurship.</li>
             </ul>
           </div>
 
