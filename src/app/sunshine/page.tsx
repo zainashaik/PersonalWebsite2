@@ -79,7 +79,7 @@ export default function Sunshine() {
         title: "Evaluation of AI Model [BAIR/Google]",
         description: "Comparing Natural Language Generation Model’s Ability to Evaluate Humorous Captions",
         citation: "Shaik, Zaina. “Exploring Humor in HCI and AI Research,” Google Computer Science Research Mentorship Program 2023b, Talk.",
-        image: "/projects/IMG_5776.jpg",
+        image: "/projects/IMG_5776.JPG",
         technologies: ["Python", "JSON", "PyTorch", "OpenAI API"],
         link: "https://drive.google.com/file/d/1oFj8biFiYlrqiEsJtt_WRa9bTwToN_0w/view?usp=sharing"
       },
@@ -177,15 +177,13 @@ export default function Sunshine() {
               </div>
               <div className="md:w-1/4 flex items-center justify-center">
                 <Image
-                  src="/exp/IMG_8745.jpg"
+                  src="/exp/IMG_8745.JPG"
                   alt="Center for AI Safety Logo"
                   width={150}
                   height={150}
                   className="rounded-lg object-contain"
                   onError={(e) => {
                     console.error('Image failed to load:', e);
-                    // Optionally set a fallback image
-                    //e.currentTarget.src = '/fallback.jpg';
                   }}
                 />
               </div>
@@ -219,7 +217,7 @@ export default function Sunshine() {
               </div>
               <div className="md:w-1/4 flex items-center justify-center">
                 <Image
-                  src="/exp/IMG_3812.jpg"
+                  src="/exp/IMG_3812.JPG"
                   alt="BAIR Logo"
                   width={150}
                   height={150}

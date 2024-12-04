@@ -7,12 +7,12 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 // Example data (you'll want to replace this with real data)
 const galleryImages = [
-  { id: 1, src: '/gallery/IMG_5578 3.jpg', alt: 'Image 1' },
-  { id: 2, src: '/gallery/Snapseed.jpg', alt: 'Image 2' },
-  { id: 3, src: '/gallery/berkPinkClouds.jpg', alt: 'Image 3' },
-  { id: 4, src: '/gallery/IMG_9056.jpg', alt: 'Image 4' },
+  { id: 1, src: '/gallery/IMG_5578 3.JPG', alt: 'Image 1' },
+  { id: 2, src: '/gallery/Snapseed.JPG', alt: 'Image 2' },
+  { id: 3, src: '/gallery/berkPinkClouds.JPG', alt: 'Image 3' },
+  { id: 4, src: '/gallery/IMG_9056.JPG', alt: 'Image 4' },
   { id: 5, src: '/gallery/IMG_1530.jpg', alt: 'Image 5' },
-  { id: 6, src: '/gallery/IMG_0957.jpg', alt: 'Image 6' },
+  { id: 6, src: '/gallery/IMG_0957.JPG', alt: 'Image 6' },
   // ... more images
 ]
 
