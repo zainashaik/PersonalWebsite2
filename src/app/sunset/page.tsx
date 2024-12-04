@@ -26,7 +26,7 @@ export default function Sunset() {
   return (
     <main className="min-h-screen pt-20 px-4 md:px-8 bg-gradient-to-br from-purple-800 via-pink-800 to-orange-800">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center text-white">
+        <h1 className="text-4xl font-bold mb-8 text-left text-white">
           Sunset - What I'm Up to During the Night
         </h1>
         <p className="text-white mb-8 text-left">I enjoy photographing pretty things and pretty people (which is everyone btw), collecting tidbits of the world to add to my scrap-binder (I think it's more flexible than a scrapbook), turning ramblings into writings, putting on henna at 2 am for cultural South Asian events, traveling with my friends and family, and over-accessorizing my outfits with butterflies!</p>

@@ -23,10 +23,10 @@ export default function Home() {
           {/* Text and Links Section */}
           <div className="md:w-1/2 space-y-4">
             <h2 className="text-2xl font-semibold text-white">Sunrise - An Introduction</h2>
-            <p className="text-white/90">
-              Hi, it's so nice to meet you! My name is Zaina Shaik, and I've graduated from UC Berkeley this May 2024 with a Bachelor of Arts in Computer Science and certificates in Design and Entrepreneurship & Technology as a Regents' and Chancellor's Scholar and SEED Honors Research Scholar. I'm currently a Research Software Engineer Intern at the Center for AI Safety in San Francisco, CA. I'm excited about Generative AI, Software Engineering, and Product Management! 
+            <p className="text-white/90 text-base">
+              Hi, it's so nice to meet you! My name is Zaina Shaik, and I graduated from <strong>UC Berkeley</strong> in <strong>May 2024</strong> with a Bachelor of Arts in <strong>Computer Science</strong> and certificates in Design and Entrepreneurship & Technology as a Regents' and Chancellor's Scholar and SEED Honors Research Scholar. I'm currently a <i>Research Software Engineer Intern</i> at the <strong>Center for AI Safety</strong> in San Francisco, CA. I'm excited about <i>Generative AI</i>, <i>Software Engineering</i>, and <i>Product Management</i>! 
             </p> 
-            <p className="text-white/90">Find out more about my past work experience on the Sunshine page and my hobbies on the Sunset page!</p>
+            <p className="text-white/90 text-base">Find out more about my past work experience on the Sunshine page and my hobbies on the Sunset page!</p>
             
             {/* Quick Links */}
             <div className="space-y-4">

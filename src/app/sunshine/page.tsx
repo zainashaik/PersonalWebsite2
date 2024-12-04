@@ -153,7 +153,7 @@ export default function Sunshine() {
 
       {/* Hero Section */}
       <div className="max-w-6xl mx-auto mb-16">
-        <h1 className="text-4xl font-bold mb-8 text-center text-white">
+        <h1 className="text-4xl font-bold mb-8 text-left text-white">
           Sunshine - What I'm Up to During the Day
         </h1>
       </div>
@@ -167,8 +167,10 @@ export default function Sunshine() {
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-white">Center for AI Safety - Research Software Engineer Intern</h3>
-                <p className="text-white">San Francisco, CA [October 2024 - present]</p>
+                <div className="flex justify-between items-start">
+                  <h3 className="text-xl font-semibold text-white">Center for AI Safety<br/><i className="text-lg">Research Software Engineer Intern</i></h3>
+                  <p className="text-white text-right">October 2024 - present<br/>San Francisco, CA</p>
+                </div>
                 <ul className="text-white list-disc list-inside ml-4">
                   <li>Building a website with real-time updates on comparisons from a database of 300 examples [React, Next.js, Typescript, Tailwind CSS, API calls].</li>
                   <li>Developed, fine-tuned, and evaluated LLM models with control vectors and representation engineering methods [Python, Llama].</li>
@@ -187,8 +189,10 @@ export default function Sunshine() {
           </div>
 
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-            <h3 className="text-xl font-semibold text-white">DayDream Ventures - Venture Fellow</h3>
-            <p className="text-white"> Remote [October 2024 - December 2024]</p>
+            <div className="flex justify-between items-start">
+                <h3 className="text-xl font-semibold text-white">DayDream Ventures<br/><i className="text-lg">Venture Fellow</i></h3>
+                <p className="text-white text-right">October 2024 - December 2024<br/>San Francisco, CA</p>
+            </div>
             <ul className="text-white list-disc list-inside ml-4">
               <li>Sourcing and writing company memos for startups in AI, Consumer, and Community.</li>
               <li>Attending weekly workshops on topics like venture capital, startups, and entrepreneurship.</li>
@@ -198,8 +202,10 @@ export default function Sunshine() {
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-white">Berkeley Artificial Intelligence Research - Generative AI Researcher and PM</h3>
-                <p className="text-white">Berkeley, CA [May 2023 - December 2023]</p>
+                <div className="flex justify-between items-start">
+                  <h3 className="text-xl font-semibold text-white">Berkeley Artificial Intelligence Research<br/><i className="text-lg">Generative AI Researcher and PM</i></h3>
+                  <p className="text-white text-right">May 2023 - December 2023<br/>Berkeley, CA</p>
+                </div>
                 <p className="text-white italic">Berkeley Natural Language Processing Group Undergraduate Researcher (Advisors: Professor Daniel Klein, PhD Student Eve Fleisig)</p>
                 <ul className="text-white list-disc list-inside ml-4">
                   <li>Scoped research goal to evaluate subjective NLG tasks and prepared dataset (141,000 data points) into training and test files [Python, JSON].</li>
@@ -220,16 +226,19 @@ export default function Sunshine() {
           </div>
           
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-            <h3 className="text-xl font-semibold text-white">Google - Computer Science Research Mentorship Program Scholar</h3>
-            <p className="text-white">Berkeley, CA [September 2023 - December 2023]</p>
-            <p className="text-white italic">Google CS Research Mentorship Program 2023b</p>
+            <div className="flex justify-between items-start">
+              <h3 className="text-xl font-semibold text-white">Google<br/><i className="text-lg">Computer Science Research Mentorship Program Scholar</i></h3>
+              <p className="text-white text-right">September 2023 - December 2023<br/>Berkeley, CA</p>
+            </div>
             <ul className="text-white list-disc list-inside ml-4">
-              <li>Received AI/ML & HCI research mentorship from Software Engineers. Presented talk on humor in natural language generation models.</li>
+              <li>Cohort 2023b. Received AI/ML & HCI research mentorship from Software Engineers. Presented talk on humor in natural language generation models.</li>
             </ul>
           </div>
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-            <h3 className="text-xl font-semibold text-white">UnitedHealth Group - Experience Design Intern</h3>
-            <p className="text-white">Irvine, CA [June 2022 - August 2022]</p>
+          <div className="flex justify-between items-start">
+                  <h3 className="text-xl font-semibold text-white">UnitedHealth Group<br/><i className="text-lg">Experience Design Intern</i></h3>
+              <p className="text-white text-right">June 2022 - August 2022<br/>Irvine, CA</p>
+            </div>
             <ul className="text-white list-disc list-inside ml-4">
               <li>Designed Onboarding Platform (saved annual $19.2 million, 38,000 users) based on business model and user feedback [Figma, Miro].</li>
               <li>1 of 5 selected to organize a 2-day Human-Centered Design Workshop (1200+ members) with C-level Executives & conduct user research.</li>
@@ -237,16 +246,20 @@ export default function Sunshine() {
             </ul>
           </div>
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-            <h3 className="text-xl font-semibold text-white">University of Southern California - Artificial Intelligence Research Intern</h3>
-            <p className="text-white">Los Angeles, CA [June 2021 - October 2021]</p>
+            <div className="flex justify-between items-start">
+              <h3 className="text-xl font-semibold text-white">University of Southern California<br/><i className="text-lg">Artificial Intelligence Research Intern</i></h3>
+              <p className="text-white text-right">June 2021 - October 2021<br/>Los Angeles, CA</p>
+            </div>
             <ul className="text-white list-disc list-inside ml-4">
               <li>Published peer-reviewed NSF research paper of STEM Minority Wikidata bot and optimized categorization process for 6 databases [SPARQL].</li>
               <li>Identified 2 real-time algorithm matching errors of Table Linking Software and increased representation by 50% [Python, KGTK].</li>
             </ul>
           </div>
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-            <h3 className="text-xl font-semibold text-white">ExoAnalytic Solutions - Software Engineering Intern</h3>
-            <p className="text-white">Irvine, CA [June 2020 - August 2020]</p>
+            <div className="flex justify-between items-start">
+              <h3 className="text-xl font-semibold text-white">ExoAnalytic Solutions<br/><i className="text-lg">Software Engineering Intern</i></h3>
+              <p className="text-white text-right">June 2020 - August 2020<br/>Irvine, CA</p>
+            </div>
             <ul className="text-white list-disc list-inside ml-4">
               <li>Remodeled 2 algorithms and extracted vital satellite data from a database for clients and improved user experience [JSON, Python].</li>
             </ul>
@@ -398,12 +411,12 @@ export default function Sunshine() {
           <div className="flex flex-col md:flex-row justify-between mb-6">
             <div className="md:w-3/4">
               <h3 className="text-xl font-semibold text-white">University of California, Berkeley</h3>
-              <p className="text-white">Bachelor of Arts in <strong>Computer Science</strong></p>
-              <p className="text-white">Berkeley Certificate in Design Innovation</p>
-              <p className="text-white">SCET Certificate in Entrepreneurship & Technology</p>
+              <p className="text-lg text-white">Bachelor of Arts in <strong>Computer Science</strong></p>
+              <p className="text-white italic">Berkeley Certificate in Design Innovation</p>
+              <p className="text-white italic">SCET Certificate in Entrepreneurship & Technology</p>
             </div>
             <div className="text-white md:w-1/4 text-right">
-              August 2020 - May 2024
+              June 2020 - May 2024
             </div>
           </div>
 
@@ -492,10 +505,39 @@ export default function Sunshine() {
             ) : (
               // All classes
               <>
-                <p className="text-white"><strong>Computer Science Major:</strong> CS194-196: Responsible Generative AI & Decentralized Intelligence & Large Language Models (LLMs), CS160: User Interfaces, CS169a: Cloud Computing & Software Engineering, CS195: AI Ethics, CS188: Artificial Intelligence, CS61b: Data Structures, CS170: Advanced Algorithms, CS70: Discrete Math, CS61a: Object Oriented Programming, CS61c: Computer Architecture, STAT 24: Data Visualizations, EECS16a/b: Machine Learning, Multivariable Calculus, Linear Algebra, Differential Equations.</p>
-                <p className="text-white"><strong>Berkeley Certificate in Design Innovation:</strong> ENVDES4a: Design & Activism, DESINV21: Visual Communications, INTEGBIC32: Bioinspired Design</p>
-                <p className="text-white"><strong>SCET Certificate in Entrepreneurship & Technology:</strong> Engin183: Product Management, UGBA194: Business Entrepreneurship</p>
-              </>
+              <div className="text-white">
+                <strong>Computer Science Major:</strong>
+                <ul className="list-disc ml-6 mt-1">
+                  <li>CS194-196: Responsible Generative AI & Decentralized Intelligence & Large Language Models (LLMs)</li>
+                  <li>CS160: User Interfaces</li>
+                  <li>CS169a: Cloud Computing & Software Engineering</li>
+                  <li>CS195: AI Ethics</li>
+                  <li>CS188: Artificial Intelligence</li>
+                  <li>CS61b: Data Structures</li>
+                  <li>CS170: Advanced Algorithms</li>
+                  <li>CS70: Discrete Math</li>
+                  <li>CS61a: Object Oriented Programming</li>
+                  <li>CS61c: Computer Architecture</li>
+                  <li>STAT 24: Data Visualizations</li>
+                  <li>EECS16a/b: Machine Learning, Multivariable Calculus, Linear Algebra, Differential Equations</li>
+                </ul>
+              </div>
+              <div className="text-white mt-4">
+                <strong>Berkeley Certificate in Design Innovation:</strong>
+                <ul className="list-disc ml-6 mt-1">
+                  <li>ENVDES4a: Design & Activism</li>
+                  <li>DESINV21: Visual Communications</li>
+                  <li>INTEGBIC32: Bioinspired Design</li>
+                </ul>
+              </div>
+              <div className="text-white mt-4">
+                <strong>SCET Certificate in Entrepreneurship & Technology:</strong>
+                <ul className="list-disc ml-6 mt-1">
+                  <li>Engin183: Product Management</li>
+                  <li>UGBA194: Business Entrepreneurship</li>
+                </ul>
+              </div>
+            </>
             )}
         </div>
 
@@ -581,7 +623,7 @@ export default function Sunshine() {
                 </ul>
                 <li>SEED Scholars Honors Program - Research Scholar and Mentor [2020-2024]</li>
                 <ul className="list-disc list-inside ml-4">
-                <li>Academic Mentor for CS61A and CS61B</li>
+                <li>Mentored 50+ students by hosting meetings and providing resources for research and internships.</li>
                 </ul>
                 <li>Girls Who Code - Member [2016-present]</li>
                 <li>Rewriting the Code - Member [2024-present]</li>
