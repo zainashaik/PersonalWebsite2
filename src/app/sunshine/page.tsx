@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import React from 'react'
 import Image from 'next/image'
 
@@ -12,6 +12,8 @@ interface Project {
   id: number;
   title: string;
   description: string;
+  details?: string;
+  citation?: string;
   image: string;
   technologies: string[];
   link?: string;
@@ -27,6 +29,30 @@ export default function Sunshine() {
   const [showAllCerts, setShowAllCerts] = useState(false)
   const [showAllOrgs, setShowAllOrgs] = useState(false)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeSection, setActiveSection] = useState('Experience');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // Offset for better trigger point
+
+      const sectionPositions = sections.map(section => ({
+        name: section.name,
+        position: section.ref.current?.offsetTop || 0
+      }));
+
+      for (let i = sectionPositions.length - 1; i >= 0; i--) {
+        if (scrollPosition >= sectionPositions[i].position) {
+          setActiveSection(sectionPositions[i].name);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' })
@@ -42,51 +68,56 @@ export default function Sunshine() {
     {
       id: 1,
       title: "zainashaik.com",
-      description: "Detailed description of project 1...",
+      description: "Personal Website",
+      details: "Built from scratch using modern web technologies. Features include responsive design, dark mode support, and interactive project showcases.",
       image: "/projects/zlogo2.png",
-      technologies: ["React", "TypeScript", "Tailwind"],
-      link: "https://github.com/..."
+      technologies: ["React", "TypeScript", "Tailwind", "Next.js"],
+      link: "https://github.com/zainashaik/zainashaik.github.io"
     },
     // Add more projects...
     {
         id: 2,
-        title: "BAIR",
-        description: "Detailed description of project 1...",
+        title: "Evaluation of AI Model [BAIR/Google]",
+        description: "Comparing Natural Language Generation Model’s Ability to Evaluate Humorous Captions",
+        citation: "Shaik, Zaina. “Exploring Humor in HCI and AI Research,” Google Computer Science Research Mentorship Program 2023b, Talk.",
         image: "/projects/IMG_5776.jpg",
-        technologies: ["React", "TypeScript", "Tailwind"],
-        link: "https://github.com/..."
+        technologies: ["Python", "JSON", "PyTorch", "OpenAI API"],
+        link: "https://drive.google.com/file/d/1oFj8biFiYlrqiEsJtt_WRa9bTwToN_0w/view?usp=sharing"
       },
       {
         id: 3,
         title: "SoulSpeak",
-        description: "Detailed description of project 1...",
+        description: "Therapy Chatbot LLM with Emotional AI",
+        details: "Integrated domain expertise and long-term memory into chatbot to provide emotional responses. Optimized 4 prompts to improve accuracy and relevance. Model reached validation accuracies of 90% preference and 70% relevance.",
         image: "/projects/soulspeak.png",
-        technologies: ["React", "TypeScript", "Tailwind"],
+        technologies: ["Python", "React", "OpenAI API"],
         link: "https://drive.google.com/file/d/1eKwHJ7mIt5fHZPDLHmJTHNumdxLxoSqb/view?usp=sharing"
       },
       {
         id: 4,
         title: "n-tuitive:)",
-        description: "Detailed description of project 1...",
+        description: "Journaling Website with Sentiment Analysis and AI Generated Journal Prompts",
         image: "/projects/ntuitive1.png",
-        technologies: ["React", "TypeScript", "Tailwind"],
-        link: "https://github.com/..."
+        technologies: ["HTML", "CSS", "Javascript", "Python", "Flask", "OpenAI API"],
+        link: "https://tinyurl.com/ntuitiveapp"
       },
       {
         id: 5,
         title: "Seasons",
-        description: "Detailed description of project 1...",
+        description: "Sustainable Fashion Brand LLM for a Quarterly Clothing Subscription Service",
+        details: "Built a morally aligned chatbot to classify brand sustainability based on 3 factors and pitched to 3 investors as CEO.",
         image: "/projects/SeasonsPitch1.png",
-        technologies: ["React", "TypeScript", "Tailwind"],
-        link: "https://github.com/..."
+        technologies: ["Python", "Canva"],
       },
       {
         id: 6,
-        title: "Race and Country Bias in Wikidata",
-        description: "Detailed description of project 1...",
+        title: "Analyzing Race and Citizenship Bias in Wikidata [USC NSF REU] [Published at IEEE MASS 2021] ",
+        description: "Poster Abstract Paper about AI Ethics and Representation in Wikidata",
+        details: "Abstract: Since there are limited full-time contributors to Wikidata, the current information might have a bias. In this paper, we examine the race and citizenship bias in general and in regards to STEM representation for scientists, software developers, and engineers. By comparing Wikidata queries to real-world datasets, we discovered that there is an overrepresentation of white individuals and those with citizenship in Europe and North America; the rest are generally underrepresented. We plan to create and implement a bot using a table-linking software to take missing information from the external datasets and insert it into Wikidata to increase minority race representation.",
+        citation: "Z. Shaik, F. Ilievski and F. Morstatter, \"Analyzing Race and Citizenship Bias in Wikidata,\" 2021 IEEE 18th International Conference on Mobile Ad Hoc and Smart Systems (MASS), 2021, pp. 665-666, doi: 10.1109/MASS52906.2021.00099. (Paper Cited 11x).",
         image: "/projects/WikidataPoster1.png",
-        technologies: ["React", "TypeScript", "Tailwind"],
-        link: "https://github.com/..."
+        technologies: ["Python", "SPARQL", "KGTK"],
+        link: "https://ieeexplore.ieee.org/abstract/document/9637775"
       },
   ];
 
@@ -98,8 +129,21 @@ export default function Sunshine() {
           {sections.map((item) => (
             <button
               key={item.name}
-              onClick={() => scrollToSection(item.ref)}
-              className="px-4 py-2 text-white hover:text-pink-200 hover:bg-white/10 rounded-md transition duration-300"
+              onClick={() => {
+                scrollToSection(item.ref);
+                setActiveSection(item.name);
+              }}
+              className={`
+                px-4 py-2 
+                text-white 
+                rounded-md 
+                transition duration-300
+                border border-white
+                ${activeSection === item.name 
+                  ? 'bg-white/20 font-semibold' 
+                  : 'hover:bg-white/10'
+                }
+              `}
             >
               {item.name}
             </button>
@@ -120,7 +164,7 @@ export default function Sunshine() {
       <div ref={experienceRef} className="max-w-6xl mx-auto mb-16 scroll-mt-32">
         <h2 className="text-3xl font-bold mb-6 text-white">Work Experience</h2>
         <div className="space-y-6">
-          <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-white">Center for AI Safety - Research Software Engineer Intern</h3>
@@ -142,7 +186,7 @@ export default function Sunshine() {
             </div>
           </div>
 
-          <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <h3 className="text-xl font-semibold text-white">DayDream Ventures - Venture Fellow</h3>
             <p className="text-white"> Remote [October 2024 - December 2024]</p>
             <ul className="text-white list-disc list-inside ml-4">
@@ -151,7 +195,7 @@ export default function Sunshine() {
             </ul>
           </div>
 
-          <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-white">Berkeley Artificial Intelligence Research - Generative AI Researcher and PM</h3>
@@ -175,7 +219,7 @@ export default function Sunshine() {
             </div>
           </div>
           
-          <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <h3 className="text-xl font-semibold text-white">Google - Computer Science Research Mentorship Program Scholar</h3>
             <p className="text-white">Berkeley, CA [September 2023 - December 2023]</p>
             <p className="text-white italic">Google CS Research Mentorship Program 2023b</p>
@@ -183,7 +227,7 @@ export default function Sunshine() {
               <li>Received AI/ML & HCI research mentorship from Software Engineers. Presented talk on humor in natural language generation models.</li>
             </ul>
           </div>
-          <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <h3 className="text-xl font-semibold text-white">UnitedHealth Group - Experience Design Intern</h3>
             <p className="text-white">Irvine, CA [June 2022 - August 2022]</p>
             <ul className="text-white list-disc list-inside ml-4">
@@ -192,7 +236,7 @@ export default function Sunshine() {
               <li>Facilitated enterprise-wide design system transition and analyzed human-centered AI applications in healthcare [HTML, CSS, Javascript].</li>
             </ul>
           </div>
-          <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <h3 className="text-xl font-semibold text-white">University of Southern California - Artificial Intelligence Research Intern</h3>
             <p className="text-white">Los Angeles, CA [June 2021 - October 2021]</p>
             <ul className="text-white list-disc list-inside ml-4">
@@ -200,7 +244,7 @@ export default function Sunshine() {
               <li>Identified 2 real-time algorithm matching errors of Table Linking Software and increased representation by 50% [Python, KGTK].</li>
             </ul>
           </div>
-          <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <h3 className="text-xl font-semibold text-white">ExoAnalytic Solutions - Software Engineering Intern</h3>
             <p className="text-white">Irvine, CA [June 2020 - August 2020]</p>
             <ul className="text-white list-disc list-inside ml-4">
@@ -229,10 +273,13 @@ export default function Sunshine() {
                   className="rounded-lg w-full"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <h3 className="text-xl font-semibold text-white text-center px-4">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                    <h3 className="text-xl font-semibold text-white text-center mb-2">
                       {project.title}
                     </h3>
+                    <p className="text-sm text-white text-center">
+                      {project.description}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -285,6 +332,18 @@ export default function Sunshine() {
                   <div className="md:w-2/3">
                     <p className="text-white mb-4">{selectedProject.description}</p>
                     
+                    {selectedProject.details && (
+                      <div className="mb-4">
+                        <p className="text-white">{selectedProject.details}</p>
+                      </div>
+                    )}
+
+                    {selectedProject.citation && (
+                        <div className="mb-4">
+                        <p className="text-white">{selectedProject.citation}</p>
+                        </div>
+                    )}
+                    
                     <div className="flex flex-wrap gap-2 mb-4">
                       {selectedProject.technologies.map((tech) => (
                         <span 
@@ -334,7 +393,7 @@ export default function Sunshine() {
         <h2 className="text-3xl font-bold mb-6 text-white">Education</h2>
         
         {/* Main Education Bubble */}
-        <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 mb-6">
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 mb-6">
           {/* Main Education Info */}
           <div className="flex flex-col md:flex-row justify-between mb-6">
             <div className="md:w-3/4">
@@ -351,18 +410,24 @@ export default function Sunshine() {
           {/* New Education Info */}
           <div className="text-white">
 
-            <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowAllAwards(!showAllAwards)}>
-              <h4 className="text-lg font-semibold mt-4">Awards:</h4>
+            
+
+          </div>
+        </div>
+
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 mt-6">
+        <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowAllAwards(!showAllAwards)}>
+              <h4 className="text-lg font-semibold mt-0 text-white">Awards:</h4>
               <svg 
                 className={`w-6 h-6 transform transition-transform ${showAllAwards ? 'rotate-180' : ''}`}
                 fill="none" 
-                stroke="currentColor" 
+                stroke="white" 
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </div>
-            <ul className="list-disc list-inside space-y-1">
+            <ul className="list-disc list-inside space-y-1 text-white">
               {!showAllAwards ? (
                 // Featured awards
                 <>
@@ -407,13 +472,15 @@ export default function Sunshine() {
                 </>
               )}
             </ul>
+        </div>
 
-            <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowAllClasses(!showAllClasses)}>
-              <h4 className="text-lg font-semibold mt-4">Classes:</h4>
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 mt-6">
+        <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowAllClasses(!showAllClasses)}>
+              <h4 className="text-lg font-semibold mt-0 text-white">Classes:</h4>
               <svg 
                 className={`w-6 h-6 transform transition-transform ${showAllClasses ? 'rotate-180' : ''}`}
                 fill="none" 
-                stroke="currentColor" 
+                stroke="white" 
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -421,22 +488,24 @@ export default function Sunshine() {
             </div>
             {!showAllClasses ? (
               // Featured classes
-              <p><strong>Computer Science Major:</strong> CS194-196: Responsible Generative AI, CS160: User Interfaces, CS169a: Cloud Computing...</p>
+              <p className="text-white"><strong>Computer Science Major:</strong> CS194-196: Responsible Generative AI, CS160: User Interfaces, CS169a: Cloud Computing...</p>
             ) : (
               // All classes
               <>
-                <p><strong>Computer Science Major:</strong> CS194-196: Responsible Generative AI & Decentralized Intelligence & Large Language Models (LLMs), CS160: User Interfaces, CS169a: Cloud Computing & Software Engineering, CS195: AI Ethics, CS188: Artificial Intelligence, CS61b: Data Structures, CS170: Advanced Algorithms, CS70: Discrete Math, CS61a: Object Oriented Programming, CS61c: Computer Architecture, STAT 24: Data Visualizations, EECS16a/b: Machine Learning, Multivariable Calculus, Linear Algebra, Differential Equations.</p>
-                <p><strong>Berkeley Certificate in Design Innovation:</strong> ENVDES4a: Design & Activism, DESINV21: Visual Communications, INTEGBIC32: Bioinspired Design</p>
-                <p><strong>SCET Certificate in Entrepreneurship & Technology:</strong> Engin183: Product Management, UGBA194: Business Entrepreneurship</p>
+                <p className="text-white"><strong>Computer Science Major:</strong> CS194-196: Responsible Generative AI & Decentralized Intelligence & Large Language Models (LLMs), CS160: User Interfaces, CS169a: Cloud Computing & Software Engineering, CS195: AI Ethics, CS188: Artificial Intelligence, CS61b: Data Structures, CS170: Advanced Algorithms, CS70: Discrete Math, CS61a: Object Oriented Programming, CS61c: Computer Architecture, STAT 24: Data Visualizations, EECS16a/b: Machine Learning, Multivariable Calculus, Linear Algebra, Differential Equations.</p>
+                <p className="text-white"><strong>Berkeley Certificate in Design Innovation:</strong> ENVDES4a: Design & Activism, DESINV21: Visual Communications, INTEGBIC32: Bioinspired Design</p>
+                <p className="text-white"><strong>SCET Certificate in Entrepreneurship & Technology:</strong> Engin183: Product Management, UGBA194: Business Entrepreneurship</p>
               </>
             )}
+        </div>
 
-            <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowAllCerts(!showAllCerts)}>
-              <h4 className="text-lg font-semibold mt-4">Certifications:</h4>
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 mt-6">
+        <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowAllCerts(!showAllCerts)}>
+              <h4 className="text-lg font-semibold mt-0 text-white">Certifications:</h4>
               <svg 
                 className={`w-6 h-6 transform transition-transform ${showAllCerts ? 'rotate-180' : ''}`}
                 fill="none" 
-                stroke="currentColor" 
+                stroke="white" 
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -444,7 +513,7 @@ export default function Sunshine() {
             </div>
             {!showAllCerts ? (
               // Featured certifications
-              <ul className="list-disc list-inside space-y-1">
+              <ul className="list-disc list-inside space-y-1 text-white">
                 <li>Amazon Web Services:</li>
                 <ul className="list-disc list-inside ml-4">
                   <li><a href="https://www.credly.com/badges/2cd8d3fe-fc79-4bcb-8ee8-fd4277498e8e/public_url" className="text-white underline hover:text-gray-300" target="_blank" rel="noopener noreferrer">Certified Cloud Practitioner</a></li>
@@ -456,7 +525,7 @@ export default function Sunshine() {
               </ul>
             ) : (
               // All certifications
-              <ul className="list-disc list-inside space-y-1">
+              <ul className="list-disc list-inside space-y-1 text-white">
                 <li>Amazon Web Services:</li>
                 <ul className="list-disc list-inside ml-4">
                   <li><a href="https://www.credly.com/badges/2cd8d3fe-fc79-4bcb-8ee8-fd4277498e8e/public_url" className="text-white underline hover:text-gray-300" target="_blank" rel="noopener noreferrer">Certified Cloud Practitioner</a></li>
@@ -474,12 +543,11 @@ export default function Sunshine() {
                 </ul>
               </ul>
             )}
-          </div>
         </div>
 
         
         {/* Organizations - New separate bubble */}
-        <div className="bg-purple-900 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 mt-6">
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 mt-6">
             <div className="flex items-center justify-between cursor-pointer" onClick={() => setShowAllOrgs(!showAllOrgs)}>
             <h4 className="text-lg font-semibold text-white">Organizations:</h4>
             <svg 
@@ -494,33 +562,29 @@ export default function Sunshine() {
             {!showAllOrgs ? (
             // Featured organizations
             <ul className="list-disc list-inside space-y-1 text-white">
-                <li>FEMTech Berkeley - President</li>
-                <li>Regents' and Chancellor's Scholars Association - Chair of Operations</li>
-                <li>SEED Scholars Honors Program - Research Scholar and Mentor</li>
+                <li>FEMTech Berkeley - President [2020-2024]</li>
+                <li>Regents' and Chancellor's Scholars Association - Chair of Operations [2020-2024]</li>
+                <li>SEED Scholars Honors Program - Research Scholar and Mentor [2020-2024]</li>
+                <li>Girls Who Code - Member [2016-present]</li>
+                <li>Rewriting the Code - Member [2024-present]</li>
             </ul>
             ) : (
             // All organizations
             <ul className="list-disc list-inside space-y-1 text-white">
-                <li>FEMTech Berkeley - President</li>
+                <li>FEMTech Berkeley - President [2020-2024]</li>
                 <ul className="list-disc list-inside ml-4">
                 <li>Managed organization of 1000+ members to advocate for gender minorities in tech by hosting professional development events and mentorship opportunities.</li>
                 </ul>
-                <li>Regents' and Chancellor's Scholars Association - Chair of Operations</li>
+                <li>Regents' and Chancellor's Scholars Association - Chair of Operations [2020-2024]</li>
                 <ul className="list-disc list-inside ml-4">
-                <li>Human-Computer Interaction Research Assistant</li>
+                <li>Managed organization of 700+ members by operating social media channels, communicated news on newsletters and website, and hosting professional development events.</li>
                 </ul>
-                <li>SEED Scholars Honors Program - Research Scholar and Mentor</li>
+                <li>SEED Scholars Honors Program - Research Scholar and Mentor [2020-2024]</li>
                 <ul className="list-disc list-inside ml-4">
                 <li>Academic Mentor for CS61A and CS61B</li>
                 </ul>
-                <li>Girls Who Code - Member</li>
-                <ul className="list-disc list-inside ml-4">
-                <li>Participated in outreach and mentorship programs</li>
-                </ul>
-                <li>Rewriting the Code - Member</li>
-                <ul className="list-disc list-inside ml-4">
-                <li>Participated in outreach and mentorship programs</li>
-                </ul>
+                <li>Girls Who Code - Member [2016-present]</li>
+                <li>Rewriting the Code - Member [2024-present]</li>
             </ul>
             )}
         </div>
