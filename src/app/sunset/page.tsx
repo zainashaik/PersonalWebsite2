@@ -116,7 +116,7 @@ const SunsetPage = () => {
                 <button
                   key={post.frontmatter.title}
                   onClick={() => setSelectedPost(post)}
-                  className={`w-full text-left p-4 rounded-lg transition-colors ${
+                  className={`w-full text-left p-4 rounded-lg transition-colors break-words ${
                     selectedPost?.frontmatter.title === post.frontmatter.title
                       ? 'bg-white/20 text-white'
                       : 'bg-white/10 text-white/80 hover:bg-white/15'

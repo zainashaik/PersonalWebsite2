@@ -123,7 +123,7 @@ export default function Sunshine() {
   return (
     <main className="min-h-screen h-full pt-20 px-4 md:px-8 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 bg-fixed pb-16">      
     {/* Sub Navigation Bar */}
-      <div className="sticky top-16 bg-purple-900/100 backdrop-blur-sm shadow-md z-10 py-3 mb-8">
+      <div className="sticky top-16 bg-black/70 backdrop-blur-sm shadow-md z-10 py-3 mb-8">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-4">
           {sections.map((item) => (
             <button
