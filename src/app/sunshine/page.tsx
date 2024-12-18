@@ -17,6 +17,7 @@ interface Project {
   image: string;
   technologies: string[];
   link?: string;
+  code?: string;
 }
 
 export default function Sunshine() {
@@ -70,8 +71,9 @@ export default function Sunshine() {
       title: "zainashaik.com",
       description: "Personal Website",
       image: "/projects/zlogo2.png",
-      technologies: ["React", "TypeScript", "Tailwind", "Next.js"],
-      link: "https://zainashaik.com"
+      technologies: ["React", "TypeScript", "Tailwind", "Next.js", "Vercel"],
+      link: "https://zainashaik.com",
+      code: "https://github.com/zainashaik/PersonalWebsite2"
     },
     // Add more projects...
     {
@@ -94,6 +96,15 @@ export default function Sunshine() {
       },
       {
         id: 4,
+        title: "Cute Outfit Stylist",
+        description: "Chatbot that generates suggestions on how to make an outfit cuter.",
+        image: "/projects/CuteOutfitStylistLogo.png",
+        technologies: ["Mistral AI API","React", "Typescript", "Tailwind CSS", "Next.js"],
+        link: "https://youtu.be/OwIMGtXsibc",
+        code: "https://github.com/zainashaik/stylist1"
+      },
+      {
+        id: 5,
         title: "n-tuitive:)",
         description: "Journaling Website with Sentiment Analysis and AI Generated Journal Prompts",
         image: "/projects/ntuitive1.png",
@@ -101,7 +112,7 @@ export default function Sunshine() {
         link: "https://tinyurl.com/ntuitiveapp"
       },
       {
-        id: 5,
+        id: 6,
         title: "Seasons",
         description: "Sustainable Fashion Brand LLM for a Quarterly Clothing Subscription Service",
         details: "Built a morally aligned chatbot to classify brand sustainability based on 3 factors and pitched to 3 investors as CEO.",
@@ -109,7 +120,7 @@ export default function Sunshine() {
         technologies: ["Python", "Canva"],
       },
       {
-        id: 6,
+        id: 7,
         title: "Analyzing Race and Citizenship Bias in Wikidata [USC NSF REU] [Published at IEEE MASS 2021] ",
         description: "Poster Abstract Paper about AI Ethics and Representation in Wikidata",
         details: "Abstract: Since there are limited full-time contributors to Wikidata, the current information might have a bias. In this paper, we examine the race and citizenship bias in general and in regards to STEM representation for scientists, software developers, and engineers. By comparing Wikidata queries to real-world datasets, we discovered that there is an overrepresentation of white individuals and those with citizenship in Europe and North America; the rest are generally underrepresented. We plan to create and implement a bot using a table-linking software to take missing information from the external datasets and insert it into Wikidata to increase minority race representation.",
@@ -118,6 +129,7 @@ export default function Sunshine() {
         technologies: ["Python", "SPARQL", "KGTK"],
         link: "https://ieeexplore.ieee.org/abstract/document/9637775"
       },
+      
   ];
 
   return (
@@ -171,8 +183,8 @@ export default function Sunshine() {
                   <p className="text-white text-right">October 2024 - present<br/>San Francisco, CA</p>
                 </div>
                 <ul className="text-white list-disc list-inside ml-4">
-                  <li>Building a website with real-time updates on comparisons from a database of 200 examples [React, Next.js, Typescript, Tailwind CSS, API calls].</li>
-                  <li>Developed, fine-tuned, and evaluated LLM models with control vectors and representation engineering methods [Python, Llama].</li>
+                  <li>Building and managing a 0-1 evaluation platform website to increase AI safety ($1.96 billion market) [React, Next.js, Typescript, Tailwind CSS].</li>
+                  <li>Increasing topic sourcing coverage to create a database of 200 comparisons for the website [MongoDB, API calls, JSON].</li>
                 </ul>
               </div>
               <div className="md:w-1/4 flex items-center justify-center">
@@ -375,9 +387,19 @@ export default function Sunshine() {
                         href={selectedProject.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white underline hover:text-gray-300"
+                        className="text-white underline hover:text-gray-300 block mb-2"
                       >
                         View Project →
+                      </a>
+                    )}
+                    {selectedProject.code && (
+                      <a
+                        href={selectedProject.code}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white underline hover:text-gray-300 block"
+                      >
+                        View Code →
                       </a>
                     )}
                   </div>
