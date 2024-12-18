@@ -1,4 +1,4 @@
-# PersonalWebsite2
+# Zaina Shaik's Website
 
 This is my personal website that you can view at [zainashaik.com](https://zainashaik.com).
 
