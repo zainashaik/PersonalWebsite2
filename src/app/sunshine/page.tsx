@@ -87,21 +87,21 @@ export default function Sunshine() {
       },
       {
         id: 3,
+        title: "Cute Outfit Stylist",
+        description: "Chatbot that generates suggestions on how to make an outfit cuter.",
+        image: "/projects/CuteOutfitStylistLogo.png",
+        technologies: ["Mistral AI API","React", "Typescript", "Tailwind CSS", "Next.js", "Vercel"],
+        link: "https://cuteoutfitstylist.vercel.app/",
+        code: "https://github.com/zainashaik/stylist1"
+      },
+      {
+        id: 4,
         title: "SoulSpeak",
         description: "Therapy Chatbot LLM with Emotional AI",
         details: "Integrated domain expertise and long-term memory into chatbot to provide emotional responses. Optimized 4 prompts to improve accuracy and relevance. Model reached validation accuracies of 90% preference and 70% relevance.",
         image: "/projects/soulspeak.png",
         technologies: ["Python", "React", "OpenAI API"],
         link: "https://drive.google.com/file/d/1eKwHJ7mIt5fHZPDLHmJTHNumdxLxoSqb/view?usp=sharing"
-      },
-      {
-        id: 4,
-        title: "Cute Outfit Stylist",
-        description: "Chatbot that generates suggestions on how to make an outfit cuter.",
-        image: "/projects/CuteOutfitStylistLogo.png",
-        technologies: ["Mistral AI API","React", "Typescript", "Tailwind CSS", "Next.js"],
-        link: "https://youtu.be/OwIMGtXsibc",
-        code: "https://github.com/zainashaik/stylist1"
       },
       {
         id: 5,
