@@ -75,7 +75,6 @@ export default function Sunshine() {
       link: "https://zainashaik.com",
       code: "https://github.com/zainashaik/PersonalWebsite2"
     },
-    // Add more projects...
     {
         id: 2,
         title: "Evaluation of AI Model [BAIR/Google]",
@@ -87,12 +86,13 @@ export default function Sunshine() {
       },
       {
         id: 3,
-        title: "Cute Outfit Stylist",
-        description: "Chatbot that generates suggestions on how to make an outfit cuter.",
-        image: "/projects/CuteOutfitStylistLogo.png",
-        technologies: ["Mistral AI API","React", "Typescript", "Tailwind CSS", "Next.js", "Vercel"],
-        link: "https://cuteoutfitstylist.vercel.app/",
-        code: "https://github.com/zainashaik/stylist1"
+        title: "Seasons",
+        description: "Sustainable Fashion Stylist Chatbot",
+        details: "Chatbot 2 (current) generates sustainable outfit suggestions based on the season. Chatbot 1 (previous) classifies fashionbrand sustainability based on 3 factors. Pitched quarterly clothing subscription service to 3 investors as CEO.",
+        image: "/projects/seasons.png",
+        technologies: ["Mistral AI API", "React", "Typescript", "Tailwind CSS", "Next.js", "Vercel"],
+        link: "https://seasons-stylist.vercel.app/",
+        code: "https://github.com/zainashaik/seasons"
       },
       {
         id: 4,
@@ -110,14 +110,6 @@ export default function Sunshine() {
         image: "/projects/ntuitive1.png",
         technologies: ["HTML", "CSS", "Javascript", "Python", "Flask", "OpenAI API"],
         link: "https://tinyurl.com/ntuitiveapp"
-      },
-      {
-        id: 6,
-        title: "Seasons",
-        description: "Sustainable Fashion Brand LLM for a Quarterly Clothing Subscription Service",
-        details: "Built a morally aligned chatbot to classify brand sustainability based on 3 factors and pitched to 3 investors as CEO.",
-        image: "/projects/SeasonsPitch1.png",
-        technologies: ["Python", "Canva"],
       },
       {
         id: 7,
