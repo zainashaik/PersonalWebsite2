@@ -171,7 +171,7 @@ export default function Sunshine() {
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-xl font-semibold text-white">Center for AI Safety<br/><i className="text-lg">Research Software Engineer Intern</i></h3>
+                  <h3 className="text-xl font-semibold text-white">Center for AI Safety<br/><i className="text-lg">Software Engineer Intern</i></h3>
                   <p className="text-white text-right">October 2024 - present<br/>San Francisco, CA</p>
                 </div>
                 <ul className="text-white list-disc list-inside ml-4">
