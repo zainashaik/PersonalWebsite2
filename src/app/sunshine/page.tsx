@@ -167,16 +167,26 @@ export default function Sunshine() {
       <div ref={experienceRef} className="max-w-6xl mx-auto mb-16 scroll-mt-32">
         <h2 className="text-3xl font-bold mb-6 text-white">Work Experience</h2>
         <div className="space-y-6">
+
+          <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+            <div className="flex justify-between items-start">
+                <h3 className="text-xl font-semibold text-white">Amazon<br/><i className="text-lg">Software Development Engineer</i></h3>
+                <p className="text-white text-right">June 2025 - present<br/>Seattle, WA</p>
+            </div>
+            <ul className="text-white list-disc list-inside ml-4">
+            </ul>
+          </div>
+
           <div className="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-1">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-xl font-semibold text-white">Center for AI Safety<br/><i className="text-lg">Software Engineer Intern</i></h3>
-                  <p className="text-white text-right">October 2024 - present<br/>San Francisco, CA</p>
+                  <h3 className="text-xl font-semibold text-white">Center for AI Safety<br/><i className="text-lg">Software Engineer</i></h3>
+                  <p className="text-white text-right">October 2024 - May 2025<br/>San Francisco, CA</p>
                 </div>
                 <ul className="text-white list-disc list-inside ml-4">
-                  <li>Building and managing a 0-1 evaluation platform website to increase AI safety ($1.96 billion market) [React, Next.js, Typescript, Tailwind CSS].</li>
-                  <li>Increasing topic sourcing coverage to create a database of 200 comparisons for the website [MongoDB, API calls, JSON].</li>
+                  <li>Built and managed a 0-1 evaluation platform website to increase AI safety ($1.96 billion market) [React, Next.js, Typescript, Tailwind CSS].</li>
+                  <li>Increased topic sourcing coverage to create a database of 200 comparisons for the website [MongoDB, API calls, JSON].</li>
                 </ul>
               </div>
               <div className="md:w-1/4 flex items-center justify-center">
